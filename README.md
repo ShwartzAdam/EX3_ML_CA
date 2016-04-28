@@ -32,18 +32,17 @@ which.max(betweenness(gg))
 closeness(gg)
 which.max(closeness(gg))
 ```
-####  eigenvector -> not sure which one is the realy working
-```{r setup}
-AdjMAT <- get.adjacency(gg,sparse=FALSE)
-eg <- eigen(AdjMAT)
-eg 
-which.max(eg$vectors)
-```
 
+![](1.png) 
+![](2.png) 
+
+####  eigenvector 
 ```{r setup}
 eig <- eigen_centrality(gg)
 which.max(eig$vector)
 ```
+
+![](3.png) 
 ###  modularity and plot seprated cumminuty by colors with betweenness
 ```{r setup}
 fc <-  edge.betweenness.community(gg)
@@ -53,6 +52,7 @@ memb <- membership(fc)
 max(memb)
 plot(gg, vertex.size=10, vertex.label=NA,vertex.color=memb, asp=FALSE)
 ```
+![](4.png)
 ### modularity and plot seprated cumminuty by colors with eigenvector
 ```{r setup}
 dc <- leading.eigenvector.community(gg)
@@ -62,6 +62,8 @@ membTwo <- membership(dc)
 max(membTwo)
 plot(gg, vertex.size=10, vertex.label=NA,vertex.color=membTwo, asp=FALSE)
 ```
+
+![](5.png)
 #QUESTION TWO USING TWITTER DATA 
 ```{r setup}
 load('termDocMatrix.rdata')
