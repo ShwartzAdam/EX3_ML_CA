@@ -65,7 +65,7 @@ plot(gg, vertex.size=10, vertex.label=NA,vertex.color=membTwo, asp=FALSE)
 ```
 
 ![](5.png)
-![](RplotEigenvector.png.png) 
+![](RplotEigenvector.png) 
 
 #QUESTION 2 USING TWITTER DATA 
 ```{r setup}
