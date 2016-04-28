@@ -15,7 +15,7 @@ ga.data <- read.csv('ga_edgelist.csv', header=TRUE)
 gg <- graph.data.frame(ga.data, directed=TRUE)
 ```
 
-### when i change it from directed graph to undirected it change many results
+### Create nre graph from data and vrtx
 ```{r setup}
 ga.data <- read.csv('ga_edgelist.csv', header=TRUE, stringsAsFactors=FALSE)
 ga.vrtx <- read.csv('ga_actors.csv', header=TRUE, stringsAsFactors=FALSE)
@@ -27,13 +27,12 @@ gg <- graph.data.frame(ga.data, vertices=ga.vrtx, directed=FALSE)
 betweenness(gg)
 which.max(betweenness(gg))
 ```
-
+![](1.png) 
 ```{r setup}
 closeness(gg)
 which.max(closeness(gg))
 ```
 
-![](1.png) 
 ![](2.png) 
 
 ####  eigenvector 
@@ -50,9 +49,13 @@ fc$modularity
 which.max(fc$modularity)
 memb <- membership(fc)
 max(memb)
-plot(gg, vertex.size=10, vertex.label=NA,vertex.color=memb, asp=FALSE)
 ```
 ![](4.png)
+
+```{r setup}
+plot(gg, vertex.size=10, vertex.label=NA,vertex.color=memb, asp=FALSE)
+```
+
 ![](RplotBetweenness.png) 
 ### modularity and plot seprated cumminuty by colors with eigenvector
 ```{r setup}
@@ -61,10 +64,13 @@ dc$modularity
 which.max(dc$modularity)
 membTwo <- membership(dc)
 max(membTwo)
+```
+![](5.png)
+
+```{r setup}
 plot(gg, vertex.size=10, vertex.label=NA,vertex.color=membTwo, asp=FALSE)
 ```
 
-![](5.png)
 ![](RplotEigenvector.png) 
 
 #QUESTION 2 USING TWITTER DATA 
@@ -153,10 +159,14 @@ fc$modularity
 which.max(fc$modularity)
 memb <- membership(fc)
 max(memb)
-plot(g, vertex.size=10, vertex.label=NA,vertex.color=memb, asp=FALSE)
 ```
 ![](10.png)
+
+```{r setup}
+plot(g, vertex.size=10, vertex.label=NA,vertex.color=memb, asp=FALSE)
+```
 ![](Rplot2Betweenness.png)
+
 ###  modularity and plot seprated cumminuty by colors with eigenvector
 ```{r setup}
 leading.eigenvector.community(g)
@@ -168,9 +178,12 @@ dc$modularity
 which.max(dc$modularity)
 membTwo <- membership(dc)
 max(membTwo)
+```{
+![](12.png)
+
+```{r setup}
 plot(g, vertex.size=10, vertex.label=NA,vertex.color=membTwo, asp=FALSE)
 ```
-![](12.png)
 ![](Rplot2Eignvector.png)
 
 
