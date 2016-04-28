@@ -6,7 +6,7 @@ output: html_document
 ---
 
 
-#QUESTION ONE
+#QUESTION 1
 ```{r setup}
 library('igraph')
 ga.data <- read.csv('ga_edgelist.csv', header = T)
@@ -53,6 +53,7 @@ max(memb)
 plot(gg, vertex.size=10, vertex.label=NA,vertex.color=memb, asp=FALSE)
 ```
 ![](4.png)
+![](RplotBetweenness.png) 
 ### modularity and plot seprated cumminuty by colors with eigenvector
 ```{r setup}
 dc <- leading.eigenvector.community(gg)
@@ -64,7 +65,9 @@ plot(gg, vertex.size=10, vertex.label=NA,vertex.color=membTwo, asp=FALSE)
 ```
 
 ![](5.png)
-#QUESTION TWO USING TWITTER DATA 
+![](RplotEigenvector.png.png) 
+
+#QUESTION 2 USING TWITTER DATA 
 ```{r setup}
 load('termDocMatrix.rdata')
 termDocMatrix[1:20,1:20]
@@ -126,20 +129,24 @@ plot(g, layout=layout1)
 betweenness(g)
 which.max(betweenness(g))
 ```
+![](6.png)
 ###  Closeness
 ```{r setup}
 closeness(g)
 which.max(closeness(g))
 ```
-###  Eigenvector, not sure which one is the realy working
+![](7.png)
+###  Eigenvector
 ```{r setup}
-AdjMAT <- get.adjacency(g,sparse=FALSE)
-eg <- eigen(AdjMAT)
-which.max(eg$vectors)
 eig <- eigen_centrality(g)
 which.max(eig$vector)
 ```
+![](8.png)
 ###  modularity and plot seprated cumminuty by colors by betweenness
+```{r setup}
+edge.betweenness.community(g)
+```
+![](9.png)
 ```{r setup}
 fc <-  edge.betweenness.community(g)
 fc$modularity
@@ -148,8 +155,13 @@ memb <- membership(fc)
 max(memb)
 plot(g, vertex.size=10, vertex.label=NA,vertex.color=memb, asp=FALSE)
 ```
-
+![](10.png)
+![](Rplot2Betweenness.png)
 ###  modularity and plot seprated cumminuty by colors with eigenvector
+```{r setup}
+leading.eigenvector.community(g)
+```
+![](11.png)
 ```{r setup}
 dc <- leading.eigenvector.community(g)
 dc$modularity 
@@ -158,5 +170,9 @@ membTwo <- membership(dc)
 max(membTwo)
 plot(g, vertex.size=10, vertex.label=NA,vertex.color=membTwo, asp=FALSE)
 ```
+![](12.png)
+![](Rplot2Eignvector.png)
+
+
 
 
