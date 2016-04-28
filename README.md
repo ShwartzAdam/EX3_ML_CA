@@ -22,12 +22,13 @@ ga.vrtx <- read.csv('ga_actors.csv', header=TRUE, stringsAsFactors=FALSE)
 gg <- graph.data.frame(ga.data, vertices=ga.vrtx, directed=FALSE)
 ```
 
-### betweenness and closeness
+### betweenness 
 ```{r setup}
 betweenness(gg)
 which.max(betweenness(gg))
 ```
 ![](1.png) 
+### closeness
 ```{r setup}
 closeness(gg)
 which.max(closeness(gg))
