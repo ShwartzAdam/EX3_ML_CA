@@ -15,7 +15,7 @@ ga.data <- read.csv('ga_edgelist.csv', header=TRUE)
 gg <- graph.data.frame(ga.data, directed=TRUE)
 ```
 
-### Create nre graph from data and vrtx
+### Create new graph from data and vrtx
 ```{r setup}
 ga.data <- read.csv('ga_edgelist.csv', header=TRUE, stringsAsFactors=FALSE)
 ga.vrtx <- read.csv('ga_actors.csv', header=TRUE, stringsAsFactors=FALSE)
@@ -178,7 +178,8 @@ dc$modularity
 which.max(dc$modularity)
 membTwo <- membership(dc)
 max(membTwo)
-```{
+```
+
 ![](12.png)
 
 ```{r setup}
