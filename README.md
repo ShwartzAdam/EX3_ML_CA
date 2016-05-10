@@ -9,6 +9,7 @@ output: html_document
 #QUESTION 1
 ```{r setup}
 library('igraph')
+library('sna')
 ga.data <- read.csv('ga_edgelist.csv', header = T)
 gg <- graph.data.frame(ga.data,directed = F)
 ga.data <- read.csv('ga_edgelist.csv', header=TRUE)
