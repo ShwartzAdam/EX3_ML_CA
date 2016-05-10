@@ -38,9 +38,10 @@ which.max(closeness(gg))
 ####  eigenvector 
 ```{r setup}
 eig <- eigen_centrality(gg)
+eig$vector
 which.max(eig$vector)
 ```
-
+![](13.png)
 ![](3.png) 
 ###  modularity and plot seprated cumminuty by colors with betweenness
 ```{r setup}
