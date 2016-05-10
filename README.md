@@ -12,8 +12,6 @@ library('igraph')
 library('sna')
 ga.data <- read.csv('ga_edgelist.csv', header = T)
 gg <- graph.data.frame(ga.data,directed = F)
-ga.data <- read.csv('ga_edgelist.csv', header=TRUE)
-gg <- graph.data.frame(ga.data, directed=TRUE)
 ```
 
 ### Create new graph from data and vrtx
